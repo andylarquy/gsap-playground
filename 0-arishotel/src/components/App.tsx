@@ -1,8 +1,8 @@
 import { StyledMainContent } from "./App.styles";
+import { Home } from "./Home/Home";
 
-// https://picsum.photos/1920/1080
-function App() {
-  return <StyledMainContent>Hello World!</StyledMainContent>;
-}
-
-export default App;
+export const App = () => (
+  <StyledMainContent>
+    <Home />
+  </StyledMainContent>
+);
