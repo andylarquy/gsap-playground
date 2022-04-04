@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Icon } from "../Icon/Icon"
+import { Icon } from "../../atom/Icon/Icon"
 
 export const StyledHome = styled.section`
   height: 100vh;

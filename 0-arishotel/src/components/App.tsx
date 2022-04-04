@@ -1,5 +1,5 @@
 import { StyledMainContent } from "./App.styles";
-import { Home } from "./Home/Home";
+import { Home } from "./block/Home/Home";
 
 export const App = () => (
   <StyledMainContent>
