@@ -9,10 +9,6 @@ const StyledBurgerSpan = styled.span`
 `;
 
 export const StyledBurgerButton = styled.button`
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  row-gap: 8px;
   cursor: pointer;
 
   background: none;
