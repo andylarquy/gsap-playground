@@ -1,11 +1,12 @@
+import { Burger } from "../../atom/Burger/Burger";
 import { StyledHeader, StyledHome, StyledIconLogo } from "./Home.styles";
 
 export const Home = () => (
   <StyledHome>
     <StyledHeader>
-    <p>Burger & Language</p> 
-    <StyledIconLogo color="white" width="20%" />
-    <p>Stuff</p>
+      <Burger width={20} height={40} />
+      <StyledIconLogo color="white" width="20%" />
+      <p>Stuff</p>
     </StyledHeader>
   </StyledHome>
 );

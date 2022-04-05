@@ -7,6 +7,7 @@ export const StyledHome = styled.section`
 `;
 
 export const StyledHeader = styled.header`
+  padding: 32px;
   display: flex;
   justify-content: space-between;
 `
