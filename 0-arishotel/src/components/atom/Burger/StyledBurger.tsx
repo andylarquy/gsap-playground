@@ -1,61 +1,43 @@
 import styled from "styled-components";
 
-interface StyledSpanProps {
-  width: number;
-  height: number;
-}
+const StyledBurgerSpan = styled.span`
+  display: block;
+  height: 3px;
+  position: absolute;
+  background-color: white;
+  width: 20px
+`;
 
-interface StyledButtonProps {
-  width: number;
-  height: number;
-}
-
-export const StyledBurgerButton = styled.button<StyledButtonProps>`
+export const StyledBurgerButton = styled.button`
   display: flex;
   flex-direction: column;
   justify-content: start;
   row-gap: 8px;
   cursor: pointer;
 
-  position: relative;
   background: none;
   border: none;
-
-  width: ${(props) => `${props.width * 2}px`};
-  height: ${(props) => `${props.height}px`};
+  padding: 0;
+  
+  position: relative;
+  width: 40px;
+  height: 24px;
 `;
 
-export const StyledTopSpan = styled.span<StyledSpanProps>`
-  display: block;
-  height: 3px;
-  width: ${(props) => `${props.width}px`};
-  background-color: white;
-
-  position: absolute;
+export const StyledTopSpan = styled(StyledBurgerSpan)`
+  width: 20px;
   top: 0;
   left: 0;
 `;
 
-export const StyledCenterSpan = styled.span<StyledSpanProps>`
-  display: block;
-  height: 3px;
-  width: ${(props) => `${props.width * 2}px`};
-  background-color: white;
-
-  position: absolute;
-  top: ${(props) => `${props.height / 4}px`};
+export const StyledCenterSpan = styled(StyledBurgerSpan)`
+  width: 40px;
+  top: 10px;
   left: 0;
 `;
 
-export const StyledBottomSpan = styled.span<StyledSpanProps>`
-  display: block;
-  height: 3px;
-  width: ${(props) => `${props.width}px`};
-  background-color: white;
-
-  position: absolute;
-  top: ${(props) => `${props.height / 2}px`};
+export const StyledBottomSpan = styled(StyledBurgerSpan)`
+  width: 20px;
+  top: 20px;
   left: 50%;
 `;
-
-

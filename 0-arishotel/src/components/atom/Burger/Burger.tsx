@@ -9,9 +9,7 @@ import { useRef, MouseEvent } from "react";
 import { hoverInAnim } from "./animBurger";
 import gsap from "gsap";
 
-type BurgerProps = { height: number; width: number };
-
-export const Burger = ({ height, width, ...props }: BurgerProps) => {
+export const Burger = ({ ...props }) => {
   const burgerRef = {
     topRef: useRef({} as HTMLElement),
     centerRef: useRef({} as HTMLElement),
@@ -30,21 +28,11 @@ export const Burger = ({ height, width, ...props }: BurgerProps) => {
     <StyledBurgerButton
       onMouseEnter={handleHover}
       onMouseLeave={handleHover}
-      width={width}
-      height={height}
       {...props}
     >
-      <StyledTopSpan ref={burgerRef.topRef} width={width} height={height} />
-      <StyledCenterSpan
-        ref={burgerRef.centerRef}
-        width={width}
-        height={height}
-      />
-      <StyledBottomSpan
-        ref={burgerRef.bottomRef}
-        width={width}
-        height={height}
-      />
+      <StyledTopSpan ref={burgerRef.topRef} />
+      <StyledCenterSpan ref={burgerRef.centerRef} />
+      <StyledBottomSpan ref={burgerRef.bottomRef} />
     </StyledBurgerButton>
   );
 };

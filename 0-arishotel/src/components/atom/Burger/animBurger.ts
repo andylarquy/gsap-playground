@@ -4,19 +4,15 @@ type BurgerParams = {
   bottomRef: React.RefObject<HTMLElement>,
   duration: number,
   reverse: boolean,
-  timeline: any
+  timeline: gsap.core.Timeline
 }
 
 export const hoverInAnim = ({ timeline, topRef, centerRef, bottomRef, duration, reverse }: BurgerParams) => {
-  const positionRight = { left: '50%', duration }
-  const positionLeft = { left: 0, duration }
-  const halfTime = duration / 2
   timeline
-    .fromTo(topRef.current, positionLeft, positionRight, 0)
-    .fromTo(bottomRef.current, positionRight, positionLeft, 0)
-    .fromTo(centerRef.current, { scaleX: 1 }, { scaleX: 0, duration: halfTime }, 0)
-    .fromTo(centerRef.current, { scaleX: 0 }, { scaleX: 1, duration: halfTime }, halfTime)
-
+    .fromTo(topRef.current, { left: 0, duration }, { left: '50%', duration }, 0)
+    .fromTo(bottomRef.current, { left: '50%', duration }, { left: 0, duration }, 0)
+    .fromTo(centerRef.current, { scaleX: 1 }, { scaleX: 0, duration: duration / 2 }, 0)
+    .fromTo(centerRef.current, { scaleX: 0 }, { scaleX: 1, duration: duration / 2 }, '>50%')
 
   if (reverse) {
     timeline.reverse()
