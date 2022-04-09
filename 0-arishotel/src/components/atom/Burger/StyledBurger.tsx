@@ -3,7 +3,6 @@ import styled from "styled-components";
 const StyledBurgerSpan = styled.span`
   display: block;
   height: 3px;
-  position: absolute;
   background-color: white;
   width: 20px
 `;
@@ -13,27 +12,23 @@ export const StyledBurgerButton = styled.button`
 
   background: none;
   border: none;
-  padding: 0;
+  padding: 4px;
   
-  position: relative;
-  width: 40px;
-  height: 24px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  height: fit-content;
 `;
 
 export const StyledTopSpan = styled(StyledBurgerSpan)`
   width: 20px;
-  top: 0;
-  left: 0;
 `;
 
 export const StyledCenterSpan = styled(StyledBurgerSpan)`
   width: 40px;
-  top: 10px;
-  left: 0;
 `;
 
 export const StyledBottomSpan = styled(StyledBurgerSpan)`
   width: 20px;
-  top: 20px;
-  left: 50%;
+  transform: translateX(100%)
 `;

@@ -1,22 +1,20 @@
+import { getChildrenOf, fromToTween } from "../../../utils/gsapHelpers"
+
 type BurgerParams = {
-  topRef: React.RefObject<HTMLElement>,
-  centerRef: React.RefObject<HTMLElement>,
-  bottomRef: React.RefObject<HTMLElement>,
+  burgerRef: React.RefObject<HTMLElement>,
   duration: number,
-  reverse: boolean,
   timeline: gsap.core.Timeline
 }
 
-export const hoverInAnim = ({ timeline, topRef, centerRef, bottomRef, duration, reverse }: BurgerParams) => {
-  timeline
-    .fromTo(topRef.current, { left: 0, duration }, { left: '50%', duration }, 0)
-    .fromTo(bottomRef.current, { left: '50%', duration }, { left: 0, duration }, 0)
-    .fromTo(centerRef.current, { scaleX: 1 }, { scaleX: 0, duration: duration / 2 }, 0)
-    .fromTo(centerRef.current, { scaleX: 0 }, { scaleX: 1, duration: duration / 2 }, '>50%')
+export const hoverInAnim = ({ timeline, duration, burgerRef }: BurgerParams) => {
+  const { current: burgerElem } = burgerRef
+  if (!burgerElem) return
 
-  if (reverse) {
-    timeline.reverse()
-  } else {
-    timeline.play()
-  }
+  const [topRef, centerRef, bottomRef] = getChildrenOf(burgerElem, 'span')
+
+  timeline
+    .add(fromToTween(topRef, { x: 0, duration }, { x: '100%', duration }), 'begin')
+    .add(fromToTween(bottomRef, { x: '100%', duration }, { x: 0, duration }), 'begin')
+    .add(fromToTween(centerRef, { scaleX: 0 }, { scaleX: 1, duration: duration / 2, delay: duration / 2 }), 'begin')
+    .add(fromToTween(centerRef, { scaleX: 1 }, { scaleX: 0, duration: duration / 2 }), 'begin')
 }
